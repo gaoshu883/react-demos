@@ -7,12 +7,13 @@
   </head>
   <body>
     <div id="example"></div>
+    <div id="mydemo"></div>
     <script type="text/babel">
       var Input = React.createClass({
         getInitialState: function() {
           return {value: 'Hello!'};
         },
-        handleChange: function(event) {
+        handleChange: function (event) {
           this.setState({value: event.target.value});
         },
         render: function () {
@@ -27,6 +28,27 @@
       });
 
       ReactDOM.render(<Input/>, document.getElementById('example'));
+
+      var Select = React.createClass({
+        getInitialState: function () {
+          return {value: 'coconut'};
+        },
+        handleChange: function (event) {
+          this.setState({value: event.target.value});
+        },
+        render: function () {
+          var value = this.state.value;
+          return (
+            <select value={value} onChange={this.handleChange}>
+              <option value="grapefruit">grapefruit</option>
+              <option value="lime">lime</option>
+              <option value="coconut">coconut</option>
+              <option value="mango">mango"</option>
+            </select>
+          );
+        }
+      });
+      ReactDOM.render(<Select />, document.getElementById('mydemo'));
     </script>
   </body>
 </html>

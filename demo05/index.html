@@ -7,6 +7,7 @@
   </head>
   <body>
     <div id="example"></div>
+    <div id="mydemo"></div>
     <script type="text/babel">
       var NotesList = React.createClass({
         render: function() {
@@ -26,8 +27,30 @@
         <NotesList>
           <span>hello</span>
           <span>world</span>
+          <span>I am a beginner for Web designer</span>
         </NotesList>,
         document.getElementById('example')
+      );
+
+      var fruits = ['apple', 'peach', 'pear', 'burry'];
+
+      var fruitList = React.createClass({
+        render: function () {
+          return (
+            <ul />
+          );
+        }
+      });
+
+      ReactDOM.render(
+        <fruitList>
+          {
+            fruits.map(function (name, index) {
+              return <li key={index}>{name}</li>
+            })
+          }
+        </fruitList>,
+        document.getElementById('mydemo')
       );
     </script>
   </body>

@@ -7,28 +7,51 @@
   </head>
   <body>
     <div id="example"></div>
+    <div id="mydemo"></div>
     <script type="text/babel">
-var LikeButton = React.createClass({
-  getInitialState: function() {
-    return {liked: false};
-  },
-  handleClick: function(event) {
-    this.setState({liked: !this.state.liked});
-  },
-  render: function() {
-    var text = this.state.liked ? 'like' : 'haven\'t liked';
-    return (
-      <p onClick={this.handleClick}>
-        You {text} this. Click to toggle.
-      </p>
-    );
-  }
-});
+      var LikeButton = React.createClass({
+        getInitialState: function() {
+          return {liked: false};
+        },
+        handleClick: function(event) {
+          this.setState({liked: !this.state.liked});
+        },
+        render: function() {
+          var text = this.state.liked ? 'like' : 'haven\'t liked';
+          return (
+            <p onClick={this.handleClick}>
+              You {text} this. Click to toggle.
+            </p>
+          );
+        }
+      });
 
-ReactDOM.render(
-  <LikeButton />,
-  document.getElementById('example')
-);
+      var Mydemo = React.createClass({
+        getInitialState: function () {
+          return {good: false};
+        },
+        toggleClick: function () {
+          this.setState({good: !this.state.good});
+        },
+        render: function () {
+          var myText = this.state.good ? 'feel well' : 'feel bad';
+          return (
+            <p onClick={this.toggleClick}>
+              You {myText}. click to toggle.
+            </p>
+          );
+        }
+      });
+
+      ReactDOM.render(
+        <LikeButton />,
+        document.getElementById('example')
+      );
+
+      ReactDOM.render(
+        <Mydemo />,
+        document.getElementById('mydemo')
+      )
     </script>
   </body>
 </html>
